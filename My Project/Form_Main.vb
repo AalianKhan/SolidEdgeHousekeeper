@@ -1,6 +1,9 @@
 ﻿Option Strict On
 
+Imports System.Configuration
 Imports System.Runtime.InteropServices
+Imports System.Security.Policy
+Imports DesignManager
 Imports Microsoft.WindowsAPICodePack.Dialogs
 Imports Newtonsoft.Json
 
@@ -848,6 +851,12 @@ Public Class Form_Main
         ListViewFiles.Groups.Add(ListViewGroup4)
         ListViewFiles.Groups.Add(ListViewGroup5)
         ListViewFiles.Groups.Add(ListViewGroup6)
+
+        TextBoxTeamCenterUsername.Text = My.Settings.TeamCenterUserName
+        TextBoxTeamCenterPassword.Text = My.Settings.TeamCenterPassword
+        TextBoxTeamCenterGroup.Text = My.Settings.TeamCenterGroup
+        TextBoxTeamCenterRole.Text = My.Settings.TeamCenterRole
+        TextBoxTeamCenterURL.Text = My.Settings.TeamCenterURL
 
         ' Form title
         Me.Text = String.Format("Solid Edge Housekeeper {0}", Me.Version)
@@ -2789,6 +2798,45 @@ Public Class Form_Main
 
     Private Sub CheckBoxWarnNoImportedProperties_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBoxWarnNoImportedProperties.CheckedChanged
         Me.WarnNoImportedProperties = CheckBoxWarnNoImportedProperties.Checked
+    End Sub
+
+    Private Sub TextBoxTeamCenterUsername_TextChanged(sender As Object, e As EventArgs) Handles TextBoxTeamCenterUsername.TextChanged
+        My.Settings.TeamCenterUserName = TextBoxTeamCenterUsername.Text
+        My.Settings.Save()
+    End Sub
+
+    Private Sub TextBoxTeamCenterPassword_TextChanged(sender As Object, e As EventArgs) Handles TextBoxTeamCenterPassword.TextChanged
+        My.Settings.TeamCenterPassword = TextBoxTeamCenterPassword.Text
+        My.Settings.Save()
+    End Sub
+
+    Private Sub TextBoxTeamCenterURL_TextChanged(sender As Object, e As EventArgs) Handles TextBoxTeamCenterURL.TextChanged
+        My.Settings.TeamCenterURL = TextBoxTeamCenterURL.Text
+        My.Settings.Save()
+    End Sub
+
+    Private Sub TextBoxTeamCenterGroup_TextChanged(sender As Object, e As EventArgs) Handles TextBoxTeamCenterGroup.TextChanged
+        My.Settings.TeamCenterGroup = TextBoxTeamCenterGroup.Text
+        My.Settings.Save()
+    End Sub
+
+    Private Sub TextBoxTeamCenterRole_TextChanged(sender As Object, e As EventArgs) Handles TextBoxTeamCenterRole.TextChanged
+        My.Settings.TeamCenterRole = TextBoxTeamCenterRole.Text
+        My.Settings.Save()
+    End Sub
+
+    Private Sub ButtonTeamCenterLogin_Click(sender As Object, e As EventArgs) Handles ButtonTeamCenterLogin.Click
+        Dim TC As New UtilsTeamCenter
+        If TC.Login Then
+            LabelTeamCenterStatus.Text = "Successfully Logged In"
+        Else
+            LabelTeamCenterStatus.Text = "Login Failed"
+        End If
+    End Sub
+
+    Private Sub BT_AddTeamCenterFile_Click(sender As Object, e As EventArgs) Handles BT_AddTeamCenterFile.Click
+        Dim FormAddTeamCenterFile As New FormAddTeamCenterFile
+        FormAddTeamCenterFile.ShowDialog()
     End Sub
 
 

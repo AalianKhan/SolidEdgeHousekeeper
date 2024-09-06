@@ -193,6 +193,21 @@ Partial Class Form_Main
         Me.CheckBoxRememberTasks = New System.Windows.Forms.CheckBox()
         Me.CheckBoxCheckForNewerVersion = New System.Windows.Forms.CheckBox()
         Me.CheckBoxWarnNoImportedProperties = New System.Windows.Forms.CheckBox()
+        Me.TabPageTeamCenter = New System.Windows.Forms.TabPage()
+        Me.ExTableLayoutPanel9 = New Housekeeper.ExTableLayoutPanel()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.ButtonTeamCenterLogin = New System.Windows.Forms.Button()
+        Me.TextBoxTeamCenterUsername = New System.Windows.Forms.TextBox()
+        Me.TextBoxTeamCenterPassword = New System.Windows.Forms.TextBox()
+        Me.TextBoxTeamCenterURL = New System.Windows.Forms.TextBox()
+        Me.TextBoxTeamCenterGroup = New System.Windows.Forms.TextBox()
+        Me.TextBoxTeamCenterRole = New System.Windows.Forms.TextBox()
+        Me.LabelTeamCenterStatus = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
         Me.TextBoxStatus = New System.Windows.Forms.TextBox()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
@@ -213,6 +228,7 @@ Partial Class Form_Main
         Me.BT_Remove = New System.Windows.Forms.ToolStripMenuItem()
         Me.NotifyIcon1 = New System.Windows.Forms.NotifyIcon(Me.components)
         Me.ColorDialog1 = New System.Windows.Forms.ColorDialog()
+        Me.BT_AddTeamCenterFile = New System.Windows.Forms.ToolStripButton()
         Me.TabControl1.SuspendLayout()
         Me.TabPageHome.SuspendLayout()
         Me.ToolStrip_Filter.SuspendLayout()
@@ -243,6 +259,8 @@ Partial Class Form_Main
         Me.TabPageGeneral.SuspendLayout()
         Me.ExTableLayoutPanel2.SuspendLayout()
         Me.ExTableLayoutPanel3.SuspendLayout()
+        Me.TabPageTeamCenter.SuspendLayout()
+        Me.ExTableLayoutPanel9.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.Menu_ListViewFile.SuspendLayout()
         Me.SuspendLayout()
@@ -400,7 +418,7 @@ Partial Class Form_Main
         'ToolStrip_List
         '
         Me.ToolStrip_List.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden
-        Me.ToolStrip_List.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BT_AddFolder, Me.BT_AddFolderSubfolders, Me.ToolStripSeparator4, Me.BT_TopLevelAsm, Me.BT_ASM_Folder, Me.ToolStripSeparator1, Me.BT_AddFromlist, Me.BT_ExportList, Me.ToolStripSeparator2, Me.BT_ErrorList, Me.BT_DeleteAll, Me.ToolStripSeparator3, Me.BT_Update, Me.ToolStripSeparator9, Me.BT_Help, Me.new_CheckBoxFilterDft, Me.new_CheckBoxFilterPsm, Me.new_CheckBoxFilterPar, Me.new_CheckBoxFilterAsm, Me.ToolStripLabel1})
+        Me.ToolStrip_List.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BT_AddFolder, Me.BT_AddFolderSubfolders, Me.BT_AddTeamCenterFile, Me.ToolStripSeparator4, Me.BT_TopLevelAsm, Me.BT_ASM_Folder, Me.ToolStripSeparator1, Me.BT_AddFromlist, Me.BT_ExportList, Me.ToolStripSeparator2, Me.BT_ErrorList, Me.BT_DeleteAll, Me.ToolStripSeparator3, Me.BT_Update, Me.ToolStripSeparator9, Me.BT_Help, Me.new_CheckBoxFilterDft, Me.new_CheckBoxFilterPsm, Me.new_CheckBoxFilterPar, Me.new_CheckBoxFilterAsm, Me.ToolStripLabel1})
         Me.ToolStrip_List.Location = New System.Drawing.Point(2, 2)
         Me.ToolStrip_List.Name = "ToolStrip_List"
         Me.ToolStrip_List.RenderMode = System.Windows.Forms.ToolStripRenderMode.System
@@ -786,6 +804,7 @@ Partial Class Form_Main
         Me.TabControl2.Controls.Add(Me.TabPageSorting)
         Me.TabControl2.Controls.Add(Me.TabPageTemplates)
         Me.TabControl2.Controls.Add(Me.TabPageGeneral)
+        Me.TabControl2.Controls.Add(Me.TabPageTeamCenter)
         Me.TabControl2.ImageList = Me.TabPage_ImageList
         Me.TabControl2.Location = New System.Drawing.Point(0, 0)
         Me.TabControl2.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
@@ -2264,6 +2283,171 @@ Partial Class Form_Main
         Me.CheckBoxWarnNoImportedProperties.Text = "Warn me if template properties have not been imported"
         Me.CheckBoxWarnNoImportedProperties.UseVisualStyleBackColor = True
         '
+        'TabPageTeamCenter
+        '
+        Me.TabPageTeamCenter.Controls.Add(Me.ExTableLayoutPanel9)
+        Me.TabPageTeamCenter.Location = New System.Drawing.Point(4, 25)
+        Me.TabPageTeamCenter.Name = "TabPageTeamCenter"
+        Me.TabPageTeamCenter.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPageTeamCenter.Size = New System.Drawing.Size(532, 789)
+        Me.TabPageTeamCenter.TabIndex = 8
+        Me.TabPageTeamCenter.Text = "TeamCenter"
+        Me.TabPageTeamCenter.UseVisualStyleBackColor = True
+        '
+        'ExTableLayoutPanel9
+        '
+        Me.ExTableLayoutPanel9.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ExTableLayoutPanel9.ColumnCount = 2
+        Me.ExTableLayoutPanel9.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100.0!))
+        Me.ExTableLayoutPanel9.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.ExTableLayoutPanel9.Controls.Add(Me.Label5, 0, 4)
+        Me.ExTableLayoutPanel9.Controls.Add(Me.Label4, 0, 3)
+        Me.ExTableLayoutPanel9.Controls.Add(Me.Label2, 0, 1)
+        Me.ExTableLayoutPanel9.Controls.Add(Me.Label1, 0, 0)
+        Me.ExTableLayoutPanel9.Controls.Add(Me.ButtonTeamCenterLogin, 0, 5)
+        Me.ExTableLayoutPanel9.Controls.Add(Me.TextBoxTeamCenterUsername, 1, 0)
+        Me.ExTableLayoutPanel9.Controls.Add(Me.TextBoxTeamCenterPassword, 1, 1)
+        Me.ExTableLayoutPanel9.Controls.Add(Me.TextBoxTeamCenterURL, 1, 2)
+        Me.ExTableLayoutPanel9.Controls.Add(Me.TextBoxTeamCenterGroup, 1, 3)
+        Me.ExTableLayoutPanel9.Controls.Add(Me.TextBoxTeamCenterRole, 1, 4)
+        Me.ExTableLayoutPanel9.Controls.Add(Me.LabelTeamCenterStatus, 1, 5)
+        Me.ExTableLayoutPanel9.Controls.Add(Me.Label3, 0, 6)
+        Me.ExTableLayoutPanel9.Controls.Add(Me.Label6, 0, 2)
+        Me.ExTableLayoutPanel9.Location = New System.Drawing.Point(6, 6)
+        Me.ExTableLayoutPanel9.Name = "ExTableLayoutPanel9"
+        Me.ExTableLayoutPanel9.RowCount = 7
+        Me.ExTableLayoutPanel9.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30.0!))
+        Me.ExTableLayoutPanel9.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30.0!))
+        Me.ExTableLayoutPanel9.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30.0!))
+        Me.ExTableLayoutPanel9.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30.0!))
+        Me.ExTableLayoutPanel9.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30.0!))
+        Me.ExTableLayoutPanel9.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30.0!))
+        Me.ExTableLayoutPanel9.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.ExTableLayoutPanel9.Size = New System.Drawing.Size(520, 180)
+        Me.ExTableLayoutPanel9.TabIndex = 1
+        Me.ExTableLayoutPanel9.Task = Nothing
+        '
+        'Label5
+        '
+        Me.Label5.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(3, 127)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(30, 16)
+        Me.Label5.TabIndex = 17
+        Me.Label5.Text = "Role"
+        '
+        'Label4
+        '
+        Me.Label4.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(3, 97)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(40, 16)
+        Me.Label4.TabIndex = 16
+        Me.Label4.Text = "Group"
+        '
+        'Label2
+        '
+        Me.Label2.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(3, 37)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(57, 16)
+        Me.Label2.TabIndex = 14
+        Me.Label2.Text = "Password"
+        '
+        'Label1
+        '
+        Me.Label1.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(3, 7)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(59, 16)
+        Me.Label1.TabIndex = 13
+        Me.Label1.Text = "Username"
+        '
+        'ButtonTeamCenterLogin
+        '
+        Me.ButtonTeamCenterLogin.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ButtonTeamCenterLogin.Location = New System.Drawing.Point(3, 153)
+        Me.ButtonTeamCenterLogin.Name = "ButtonTeamCenterLogin"
+        Me.ButtonTeamCenterLogin.Size = New System.Drawing.Size(94, 24)
+        Me.ButtonTeamCenterLogin.TabIndex = 11
+        Me.ButtonTeamCenterLogin.Text = "Login"
+        Me.ButtonTeamCenterLogin.UseVisualStyleBackColor = True
+        '
+        'TextBoxTeamCenterUsername
+        '
+        Me.TextBoxTeamCenterUsername.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TextBoxTeamCenterUsername.Location = New System.Drawing.Point(103, 3)
+        Me.TextBoxTeamCenterUsername.Name = "TextBoxTeamCenterUsername"
+        Me.TextBoxTeamCenterUsername.Size = New System.Drawing.Size(414, 23)
+        Me.TextBoxTeamCenterUsername.TabIndex = 1
+        '
+        'TextBoxTeamCenterPassword
+        '
+        Me.TextBoxTeamCenterPassword.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TextBoxTeamCenterPassword.Location = New System.Drawing.Point(103, 33)
+        Me.TextBoxTeamCenterPassword.Name = "TextBoxTeamCenterPassword"
+        Me.TextBoxTeamCenterPassword.Size = New System.Drawing.Size(414, 23)
+        Me.TextBoxTeamCenterPassword.TabIndex = 3
+        Me.TextBoxTeamCenterPassword.UseSystemPasswordChar = True
+        '
+        'TextBoxTeamCenterURL
+        '
+        Me.TextBoxTeamCenterURL.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TextBoxTeamCenterURL.Location = New System.Drawing.Point(103, 63)
+        Me.TextBoxTeamCenterURL.Name = "TextBoxTeamCenterURL"
+        Me.TextBoxTeamCenterURL.Size = New System.Drawing.Size(414, 23)
+        Me.TextBoxTeamCenterURL.TabIndex = 5
+        '
+        'TextBoxTeamCenterGroup
+        '
+        Me.TextBoxTeamCenterGroup.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TextBoxTeamCenterGroup.Location = New System.Drawing.Point(103, 93)
+        Me.TextBoxTeamCenterGroup.Name = "TextBoxTeamCenterGroup"
+        Me.TextBoxTeamCenterGroup.Size = New System.Drawing.Size(414, 23)
+        Me.TextBoxTeamCenterGroup.TabIndex = 7
+        '
+        'TextBoxTeamCenterRole
+        '
+        Me.TextBoxTeamCenterRole.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TextBoxTeamCenterRole.Location = New System.Drawing.Point(103, 123)
+        Me.TextBoxTeamCenterRole.Name = "TextBoxTeamCenterRole"
+        Me.TextBoxTeamCenterRole.Size = New System.Drawing.Size(414, 23)
+        Me.TextBoxTeamCenterRole.TabIndex = 10
+        '
+        'LabelTeamCenterStatus
+        '
+        Me.LabelTeamCenterStatus.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.LabelTeamCenterStatus.AutoSize = True
+        Me.LabelTeamCenterStatus.Location = New System.Drawing.Point(103, 157)
+        Me.LabelTeamCenterStatus.Name = "LabelTeamCenterStatus"
+        Me.LabelTeamCenterStatus.Size = New System.Drawing.Size(83, 16)
+        Me.LabelTeamCenterStatus.TabIndex = 12
+        Me.LabelTeamCenterStatus.Text = "Not Logged In"
+        '
+        'Label3
+        '
+        Me.Label3.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(3, 182)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(0, 16)
+        Me.Label3.TabIndex = 15
+        '
+        'Label6
+        '
+        Me.Label6.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(3, 67)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(64, 16)
+        Me.Label6.TabIndex = 18
+        Me.Label6.Text = "Server URL"
+        '
         'TextBoxStatus
         '
         Me.TextBoxStatus.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
@@ -2422,6 +2606,15 @@ Partial Class Form_Main
         Me.NotifyIcon1.Text = "NotifyIcon1"
         Me.NotifyIcon1.Visible = True
         '
+        'BT_AddTeamCenterFile
+        '
+        Me.BT_AddTeamCenterFile.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BT_AddTeamCenterFile.Image = CType(resources.GetObject("BT_AddTeamCenterFile.Image"), System.Drawing.Image)
+        Me.BT_AddTeamCenterFile.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.BT_AddTeamCenterFile.Name = "BT_AddTeamCenterFile"
+        Me.BT_AddTeamCenterFile.Size = New System.Drawing.Size(23, 22)
+        Me.BT_AddTeamCenterFile.Text = "Add TeamCenter File "
+        '
         'Form_Main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
@@ -2486,6 +2679,9 @@ Partial Class Form_Main
         Me.ExTableLayoutPanel2.PerformLayout()
         Me.ExTableLayoutPanel3.ResumeLayout(False)
         Me.ExTableLayoutPanel3.PerformLayout()
+        Me.TabPageTeamCenter.ResumeLayout(False)
+        Me.ExTableLayoutPanel9.ResumeLayout(False)
+        Me.ExTableLayoutPanel9.PerformLayout()
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.PerformLayout()
         Me.Menu_ListViewFile.ResumeLayout(False)
@@ -2683,4 +2879,20 @@ Partial Class Form_Main
     Friend WithEvents ExTableLayoutPanel8 As ExTableLayoutPanel
     Friend WithEvents ButtonHelp As Button
     Friend WithEvents CheckBoxWarnNoImportedProperties As CheckBox
+    Friend WithEvents TabPageTeamCenter As TabPage
+    Friend WithEvents ExTableLayoutPanel9 As ExTableLayoutPanel
+    Friend WithEvents Label5 As Label
+    Friend WithEvents Label4 As Label
+    Friend WithEvents Label2 As Label
+    Friend WithEvents Label1 As Label
+    Friend WithEvents ButtonTeamCenterLogin As Button
+    Friend WithEvents TextBoxTeamCenterUsername As TextBox
+    Friend WithEvents TextBoxTeamCenterPassword As TextBox
+    Friend WithEvents TextBoxTeamCenterURL As TextBox
+    Friend WithEvents TextBoxTeamCenterGroup As TextBox
+    Friend WithEvents TextBoxTeamCenterRole As TextBox
+    Friend WithEvents LabelTeamCenterStatus As Label
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Label6 As Label
+    Friend WithEvents BT_AddTeamCenterFile As ToolStripButton
 End Class
